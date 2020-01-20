@@ -132,7 +132,7 @@ article {
 article h2 {
 	color: rgb(200, 0, 0);
 }
-article h3 {
+article h3, section h3 {
 	color: rgb(0, 0, 200);
 }
 article li {
