@@ -63,6 +63,10 @@ body {
 	clear: both;
 }
 
+.hidden {
+	display: none;
+}
+
 header, nav, article, section, footer {
 	margin: 0 auto;
 	max-width: 1000px;
@@ -121,9 +125,15 @@ nav a {
 	color: black;
 	font-size: .9em;
 }
-nav a:hover {
+nav a:hover,
+nav a.current {
 	background: #bea86f;
 	color: white;
+}
+@media screen and (max-width:800px) {
+	nav a {
+		display: block;
+	}
 }
 
 article {
@@ -198,6 +208,14 @@ button {
 button:hover, button:focus {
 	filter: saturate(1.5);
 	color: rgba(0, 0, 0, 1);
+}
+form[disabled] input, form[disabled] textarea {
+	background: #eee;
+	color: #666;
+}
+form[disabled] button {
+	filter: saturate(0);
+	cursor: wait;
 }
 
 footer {
