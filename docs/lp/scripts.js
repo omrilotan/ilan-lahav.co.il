@@ -1,13 +1,29 @@
 (function() {
-	window._gaq = window._gaq || [];
-	window._gaq.push(['_setAccount', 'UA-30435522-1']);
-	window._gaq.push(['_trackPageview']);
-})();
-
-(function() {
 	var form = document.forms[0];
 	form.onsubmit = function(event) {
 		event.preventDefault();
+
+		var checked = 0;
+
+		var fullName = document.getElementById('fullname').value;
+		var phoneNumber = document.getElementById('phonenumber').value;
+
+		var errors = [];
+
+		if (fullName.length < 2) {
+			errors.push("נא להזין שם מלא");
+		}
+
+		if (phoneNumber.length < 9) {
+			errors.push("יש להזין טלפון חוקי");
+		}
+
+		if (errors.length) {
+			alert("יש למלא את השדות כראוי:\n" + errors.join('.\n'));
+			return;
+		}
+
+		gtag('event', 'conversion', {'send_to': 'AW-980379301/q5f4CP-W07UBEKXNvdMD'});
 
 		try {
 			var data = serialise(form);
@@ -23,13 +39,8 @@
 				body: JSON.stringify(data)
 			}).then(function (response) {
 				if (response.ok) {
-					var thankyou = document.getElementById('thankyou');
-					if (!thankyou) {
-						thankyou = new Image();
-						thankyou.src = '/assets/thanks.gif';
-					}
-					form.parentNode.replaceChild(thankyou, form);
-					thankyou.classList.remove('hidden');
+
+					form.innerHTML = '<p>תודה, הפניה נשלחה בהצלחה</p><p>פנייתכם התקבלה ובקרוב ניצור איתכם קשר.</p>';
 				} else {
 					throw new Error('Response not okay');
 				}

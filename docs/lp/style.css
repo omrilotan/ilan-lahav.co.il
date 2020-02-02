@@ -755,7 +755,7 @@ font-size: 22px;
 
 #Rightcolumn h2 { padding-right: 3%; }
 
-#form p { font-size: 30px; }
+#form p { font-size: 30px; line-height: normal; }
 
 #formimage { margin: 0 33%; }
 
