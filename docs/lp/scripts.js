@@ -39,9 +39,7 @@
 				body: JSON.stringify(data)
 			}).then(function (response) {
 				if (response.ok) {
-
-					form.innerHTML = '<p>תודה, הפניה נשלחה בהצלחה</p><p>פנייתכם התקבלה ובקרוב ניצור איתכם קשר.</p>';
-					gtag('event', 'conversion', {'send_to': 'AW-980379301/q5f4CP-W07UBEKXNvdMD'});
+					document.location.href = './thank-you/';
 				} else {
 					throw new Error('Response not okay');
 				}
@@ -71,13 +69,3 @@ function serialise(form) {
 		{}
 	);
 }
-
-(function() {
-	var nav = document.getElementsByTagName('nav')[0];
-
-	[].forEach.call(nav.children, function (child) {
-		if (child.href === document.location.href) {
-			child.classList.add('current');
-		}
-	});
-})();
