@@ -41,6 +41,7 @@
 				if (response.ok) {
 
 					form.innerHTML = '<p>תודה, הפניה נשלחה בהצלחה</p><p>פנייתכם התקבלה ובקרוב ניצור איתכם קשר.</p>';
+					gtag('event', 'conversion', {'send_to': 'AW-980379301/q5f4CP-W07UBEKXNvdMD'});
 				} else {
 					throw new Error('Response not okay');
 				}
